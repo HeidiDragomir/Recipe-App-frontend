@@ -1,1 +1,27 @@
-<p>index works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card" *ngFor="let recipe of recipes" style="width: 400px">
+        <img
+          class="card-img-top"
+          src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
+          alt="Card image"
+          style="width: 100%"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ recipe.label }}</h4>
+          <p class="card-text">{{ recipe.ingredients }}</p>
+          <a
+            href="#"
+            class="btn btn-primary"
+            [routerLink]="['/recipe/', recipe.id, 'view']"
+            >View</a
+          >
+          <a href="#" routerLink="/recipe/index" class="btn btn-success"
+            >Save</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
