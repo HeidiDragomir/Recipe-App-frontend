@@ -3,14 +3,17 @@ export interface Recipe {
   label: string;
   ingredientLines: [];
   image: string;
-  /* recipeId: string;
-    date: any; */
+  recipeId: number | string;
+    // date: any;
 }
 
-/* export interface Hit {
+
+export interface Hit {
   recipe: Recipe;
+  
 }
 
-export interface RecipeAPIdata {
+export interface RecipeAPI {
   hits: Hit[];
-} */
+  
+}

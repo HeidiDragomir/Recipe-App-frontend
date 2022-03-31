@@ -3,13 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Recipe } from './recipe';
+import { Recipe, RecipeAPI } from './recipe';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
-  private apiUrl = 'http://localhost:5000';
+  // private apiUrl = 'http://localhost:5000';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,29 +17,45 @@ export class RecipeService {
       // Accept: 'application/json',
     }),
   };
-  /* 
-  private apiUrl = 'https://api.edamam.com/api/recipes/v2?type=public&q=salad&app_id=c8dd4a6a&app_key=dc5e4004a3fe30ebd0b83a40936125df';
-apiId = `c8dd4a6a`;
-  apiKey = `dc5e4004a3fe30ebd0b83a40936125df`; */
+
+  private apiUrl = 'https://api.edamam.com/api/recipes/v2?type=public';
+  apiId = 'c8dd4a6a';
+  apiKey = 'dc5e4004a3fe30ebd0b83a40936125df';
+  id!: number | string;
+  search!: string;
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Recipe[]> {
+  /* getAll(): Observable<Recipe[]> {
     return this.http
       .get<Recipe[]>(this.apiUrl + '/recipes/')
       .pipe(catchError(this.errorHandler));
-  }
+  } */
   // (this.apiUrl + '&app_id=' + this.apiId + '&app_key=' + this.apiKey)
 
-  /* getAll(): Observable<RecipeAPIdata> {
+  getAllRecipes(search: string): Observable<RecipeAPI> {
     return this.http
-      .get<RecipeAPIdata>(this.apiUrl + '')
+      .get<RecipeAPI>(
+        this.apiUrl +
+          '&q=' + search +
+          '&app_id=' +
+          this.apiId +
+          '&app_key=' +
+          this.apiKey
+      )
       .pipe(catchError(this.errorHandler));
-  } */
+  }
 
-  find(id: number | string): Observable<Recipe> {
+  getRecipe(recipeId: number | string): Observable<RecipeAPI> {
     return this.http
-      .get<Recipe>(this.apiUrl + '/recipes/' + id)
+      .get<RecipeAPI>(
+        this.apiUrl +
+          '&q=' + this.search + recipeId +
+          '&app_id=' +
+          this.apiId +
+          '&app_key=' +
+          this.apiKey
+      )
       .pipe(catchError(this.errorHandler));
   }
 
