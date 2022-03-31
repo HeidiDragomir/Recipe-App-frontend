@@ -3,32 +3,62 @@
         {
             "id": 1,
             "label": "Green salad with avocado",
-            "ingredients": "2 cloves of garlic minced"
+            "ingredientLines": [
+            "1.0 tbsp olive oil",
+            "2 pieces sirloin steak , about 350g/12oz in total",
+            "120.0g bag herb salad",
+            "6.0 tbsp honey and mustard salad dessing , bought or homemade"],
+            "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
           },
           {
             "id": 2,
             "label": "Spinach Frittata with green salad",
-            "ingredients": "1 tsp cumin seeds"
+            "ingredientLines": ["750.0g bag frozen potato wedges",
+              "1.0 tbsp olive oil",
+              "2 pieces sirloin steak , about 350g/12oz in total",
+              "120.0g bag herb salad",
+              "6.0 tbsp honey and mustard salad dessing , bought or homemade"],
+              "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
           },
           {
             "id": 3,
             "label": "Chicken Marengo",
-            "ingredients": "2 medium onions sliced thin"
+            "ingredientLines": ["750.0g bag frozen potato wedges",
+              "1.0 tbsp olive oil",
+              "2 pieces sirloin steak , about 350g/12oz in total",
+              "120.0g bag herb salad",
+              "6.0 tbsp honey and mustard salad dessing , bought or homemade"],
+              "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
           },
           {
             "id": 4,
             "label": "Chicken roulade",
-            "ingredients": "1 tsp garam masala"
+            "ingredientLines": ["750.0g bag frozen potato wedges",
+              "1.0 tbsp olive oil",
+              "2 pieces sirloin steak , about 350g/12oz in total",
+              "120.0g bag herb salad",
+              "6.0 tbsp honey and mustard salad dessing , bought or homemade"],
+              "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
           },
           {
             "id": 5,
             "label": "Sticky Buns",
-            "ingredients": "1/2 tsp salt"
+            "ingredientLines": ["750.0g bag frozen potato wedges",
+              "1.0 tbsp olive oil",
+              "2 pieces sirloin steak , about 350g/12oz in total",
+              "120.0g bag herb salad",
+              "6.0 tbsp honey and mustard salad dessing , bought or homemade"],
+              "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
           },
           {
             "id": 6,
             "label": "Easy brown rice recipe",
-            "ingredients": "1 Tbs mint minced"
+            "ingredientLines": ["750.0g bag frozen potato wedges",
+              "1.0 tbsp olive oil",
+              "2 pieces sirloin steak , about 350g/12oz in total",
+              "120.0g bag herb salad",
+              "6.0 tbsp honey and mustard salad dessing , bought or homemade"],
+              "image": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-27061_11-e68d600.jpg?quality=90&webp=true&resize=375,341"
           }
     ]
   }

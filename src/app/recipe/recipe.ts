@@ -1,7 +1,8 @@
 export interface Recipe {
   id?: number;
   label: string;
-  ingredients: string;
+  ingredientLines: [];
+  image: string;
   /* recipeId: string;
     date: any; */
 }
