@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RecipeService } from '../recipe.service';
-import { Recipe } from '../recipe';
+import { Recipe, RecipeAPI } from '../recipe';
 
 @Component({
   selector: 'app-index',
@@ -10,19 +10,21 @@ import { Recipe } from '../recipe';
 })
 export class IndexComponent implements OnInit {
   recipes: Recipe[] = [];
+  search!: string;
+  
 
   constructor(public recipeService: RecipeService) {}
 
-  /* ngOnInit(): void {
-    this.recipeService.getAll().subscribe((data: RecipeAPIdata) => {
-      this.recipes[2] = data.hits[2].recipe;
+ /*  ngOnInit(): void {
+    this.recipeService.getAllRecipes(this.search).subscribe((data: RecipeAPIdata) => {
+      this.recipes[0] = data.hits[0].recipe;
       console.log(this.recipes);
     });
   } */
 
   ngOnInit(): void {
-    this.recipeService.getAll().subscribe((data: Recipe[]) => {
-      this.recipes = data;
+    this.recipeService.getAllRecipes(this.search).subscribe((data: RecipeAPI) => {
+      this.recipes = data.hits.map(res => res.recipe);
       console.log(this.recipes);
     });
   }

@@ -1,17 +1,17 @@
-<div class="container py-5">
-  <div class="card mb-3">
+<!-- <div class="container py-5">
+  <div *ngIf="recipe" class="card mb-3">
     <div class="row g-0">
       <div class="col-md-4">
         <img
-          src="{{ recipes.image }}"
+          src="{{ recipe.id }}"
           class="img-fluid rounded-start"
-          alt="..."
+          alt="Food"
         />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ recipes.label }}</h5>
-          <p class="card-text">{{ recipes.ingredientLines }}</p>
+          <h5 class="card-title">{{ recipe.label }}</h5>
+          <p class="card-text">{{ recipe.ingredientLines }}</p>
           <p class="card-text">
             <a href="#" routerLink="/recipe/index" class="btn btn-primary"
               >Back</a
@@ -23,4 +23,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

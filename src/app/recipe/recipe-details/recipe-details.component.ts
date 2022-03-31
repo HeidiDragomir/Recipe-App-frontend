@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe } from '../recipe';
+import { Recipe, RecipeAPI } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -9,12 +9,12 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-details.component.css'],
 })
 export class RecipeDetailsComponent implements OnInit {
-  
-  id!: number;
+  id!: number | string;
+  image!: string;
   label!: string;
   ingredientLines!: string;
-  recipes!: Recipe;
-  
+  recipe: Recipe[] = [];
+  recipeId!: string;
 
   constructor(
     public recipeService: RecipeService,
@@ -25,8 +25,20 @@ export class RecipeDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['recipeId'];
 
-    this.recipeService.find(this.id).subscribe((data: Recipe) => {
-      this.recipes = data;
+    this.recipeService.getRecipe(this.id).subscribe((data: any) => {
+      this.recipe = data.hits;
+      console.log(this.recipe);
     });
   }
+
+  /* ngOnInit() {
+    this.recipeService.getRecipe(this.route.snapshot.params['recipeId']).subscribe((data: RecipeAPI) => {
+      this.recipe = data.hits.map(hit => {
+        let recipe = hit.recipe;
+        // recipe.id = recipe.uri.slice(-32);
+        return recipe;
+      }); 
+        
+    });
+  } */
 }
