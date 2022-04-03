@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Recipe, RecipeAPI } from './recipe';
@@ -14,51 +14,26 @@ export class RecipeService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Accept: 'application/json',
     }),
   };
 
-  private apiUrl = 'https://api.edamam.com/api/recipes/v2?type=public';
-  apiId = 'c8dd4a6a';
-  apiKey = 'dc5e4004a3fe30ebd0b83a40936125df';
-  id!: number | string;
-  search!: string;
+  private apiUrl = 'https://api.spoonacular.com/recipes/complexSearch';
+  
+  private apiKey = '7c0097059eea4b37ac2979292e6eeee3';
+
+  public number = '51';
 
   constructor(private http: HttpClient) {}
 
-  /* getAll(): Observable<Recipe[]> {
-    return this.http
-      .get<Recipe[]>(this.apiUrl + '/recipes/')
-      .pipe(catchError(this.errorHandler));
-  } */
-  // (this.apiUrl + '&app_id=' + this.apiId + '&app_key=' + this.apiKey)
+  
 
-  getAllRecipes(search: string): Observable<RecipeAPI> {
+  getAllRecipes(): Observable<RecipeAPI> {
     return this.http
-      .get<RecipeAPI>(
-        this.apiUrl +
-          '&q=' + search +
-          '&app_id=' +
-          this.apiId +
-          '&app_key=' +
-          this.apiKey
-      )
+      .get<RecipeAPI>(this.apiUrl + '?apiKey=' + this.apiKey + '&number=' + this.number)
       .pipe(catchError(this.errorHandler));
   }
 
-  getRecipe(recipeId: number | string): Observable<RecipeAPI> {
-    return this.http
-      .get<RecipeAPI>(
-        this.apiUrl +
-          '&q=' + this.search + recipeId +
-          '&app_id=' +
-          this.apiId +
-          '&app_key=' +
-          this.apiKey
-      )
-      .pipe(catchError(this.errorHandler));
-  }
-
+  
   errorHandler(error: {
     error: { message: string };
     status: any;

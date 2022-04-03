@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe, RecipeAPI } from '../recipe';
+import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -9,13 +9,15 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-details.component.css'],
 })
 export class RecipeDetailsComponent implements OnInit {
+ /*  recipeId!: string;
+
   id!: number | string;
   image!: string;
   label!: string;
   ingredientLines!: string;
+  
+  
   recipe: Recipe[] = [];
-  recipeId!: string;
-
   constructor(
     public recipeService: RecipeService,
     private route: ActivatedRoute,
@@ -23,12 +25,15 @@ export class RecipeDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['recipeId'];
+    this.recipeId = this.route.snapshot.params['id'];
 
-    this.recipeService.getRecipe(this.id).subscribe((data: any) => {
+    this.recipeService.getRecipe(this.recipeId).subscribe((data: any) => {
       this.recipe = data.hits;
       console.log(this.recipe);
-    });
+    }); */
+    ngOnInit(): void {
+        
+    }
   }
 
   /* ngOnInit() {
@@ -41,4 +46,4 @@ export class RecipeDetailsComponent implements OnInit {
         
     });
   } */
-}
+
