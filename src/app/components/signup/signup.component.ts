@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  styleUrls: ['./signup.component.css'],
 })
-
 export class SignupComponent implements OnInit {
+  
   signupForm: FormGroup;
+
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
@@ -25,9 +26,9 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
   registerUser() {
     this.authService.signUp(this.signupForm.value).subscribe((res) => {
-      if (res.result) {
+      if (res) {
         this.signupForm.reset();
-        this.router.navigate(['log-in']);
+        this.router.navigate(['recipes/index']);
       }
     });
   }
