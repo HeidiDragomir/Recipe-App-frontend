@@ -5,10 +5,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss'],
+  styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
+  
   signinForm: FormGroup;
+
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
@@ -20,6 +22,7 @@ export class SigninComponent implements OnInit {
     });
   }
   ngOnInit() {}
+  
   loginUser() {
     this.authService.signIn(this.signinForm.value);
   }

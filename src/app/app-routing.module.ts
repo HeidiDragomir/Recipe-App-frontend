@@ -5,7 +5,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/log-in', pathMatch: 'full' },
+  { path: 'recipes', redirectTo: '/log-in', pathMatch: 'full' },
   { path: 'log-in', component: SigninComponent },
   { path: 'sign-up', component: SignupComponent }
   /* {
