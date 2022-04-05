@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   endpoint: string = 'http://localhost:8000/api';
-  headers = new HttpHeaders().set('Content-Type', 'application/json',
-  );
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   constructor(private http: HttpClient, public router: Router) {}
 
@@ -31,6 +30,7 @@ export class AuthService {
       .post<any>(`${this.endpoint}/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.token);
+        this.router.navigate(['recipes/index']);
         /* this.getUserProfile(res._id).subscribe((res) => {
           this.currentUser = res;
           this.router.navigate(['user-profile/' + res.msg._id]);
@@ -47,7 +47,7 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['log-in']);
+      this.router.navigate(['recipes/index']);
     }
   }
   // User profile
