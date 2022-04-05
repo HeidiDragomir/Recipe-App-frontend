@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe } from '../recipe';
+import { Recipe, RecipeAPI } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -9,15 +9,9 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipe-details.component.css'],
 })
 export class RecipeDetailsComponent implements OnInit {
- /*  recipeId!: string;
-
-  id!: number | string;
-  image!: string;
-  label!: string;
-  ingredientLines!: string;
-  
-  
-  recipe: Recipe[] = [];
+  recipe: any;
+  id!: number;
+  public package: any = {};
   constructor(
     public recipeService: RecipeService,
     private route: ActivatedRoute,
@@ -25,25 +19,47 @@ export class RecipeDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.recipeId = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['recipeId'];
 
-    this.recipeService.getRecipe(this.recipeId).subscribe((data: any) => {
-      this.recipe = data.hits;
-      console.log(this.recipe);
-    }); */
-    ngOnInit(): void {
-        
-    }
+    this.recipeService.getRecipe(this.id).subscribe((data) => {
+      this.recipe = data;
+    });
   }
 
-  /* ngOnInit() {
-    this.recipeService.getRecipe(this.route.snapshot.params['recipeId']).subscribe((data: RecipeAPI) => {
-      this.recipe = data.hits.map(hit => {
-        let recipe = hit.recipe;
-        // recipe.id = recipe.uri.slice(-32);
-        return recipe;
-      }); 
-        
+ /*  saveRecipe(recipe: any) {
+    this.package = {
+      title: recipe.title,
+      img: recipe.image,
+    };
+    this.recipeService.saveRecipe(this.id).subscribe((res: any) => {
+      this.router.navigateByUrl('recipes/index');
     });
   } */
 
+ saveRecipe(recipe: any) {
+    this.package = {
+      title: recipe.title,
+      image: recipe.image,
+    };
+    this.recipeService
+      .saveRecipe(this.package).subscribe((res: any) => {
+        this.router.navigateByUrl('recipes/index');
+      });
+      
+  }
+  /*
+  handleResponse(data: any) {
+    console.log(data);
+    this.Token.handle(data.access_token);
+    this.router.navigateByUrl('/profile');
+  }
+
+  handleError(error: any) {
+    error = error.error.errors;
+  } */
+  /* submit() {
+    this.recipeService.saveRecipe(this.id).subscribe((res) => {
+      this.router.navigateByUrl('recipes/index');
+    });
+  } */
+}

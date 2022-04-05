@@ -3,6 +3,12 @@ export interface Recipe {
   title: string;
   calories: number;
   image: string;
+  readyInMinutes: number;
+  servings: number;
+  spoonacularSourceUrl: string;
+  healthScore: number;
+  dishTypes: [];
+  
   
 }
 export interface RecipeAPI {
