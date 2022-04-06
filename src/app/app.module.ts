@@ -11,6 +11,7 @@ import { RecipeModule } from './recipe/recipe.module';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     SigninComponent,
     SignupComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
