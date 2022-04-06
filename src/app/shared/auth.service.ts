@@ -16,12 +16,16 @@ export class AuthService {
   endpoint: string = 'http://localhost:8000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
+  authService: any;
+  
+  
   constructor(private http: HttpClient, public router: Router) {}
 
   // Sign-up
   signUp(user: User): Observable<any> {
     let api = `${this.endpoint}/register`;
     return this.http.post(api, user).pipe(catchError(this.handleError));
+    
   }
 
   // Sign-in
@@ -30,36 +34,39 @@ export class AuthService {
       .post<any>(`${this.endpoint}/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.token);
-        this.router.navigate(['recipes/index']);
-        /* this.getUserProfile(res._id).subscribe((res) => {
+        // this.router.navigate(['recipes/index']);
+        this.getUserProfile(res.user.id).subscribe((res: any) => {
           this.currentUser = res;
-          this.router.navigate(['user-profile/' + res.msg._id]);
-        }); */
+          this.router.navigate(['user-profile/' + res.user.id]);
+        });
       });
   }
   getToken() {
     return localStorage.getItem('access_token');
   }
+
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return authToken !== null ? true : false;
   }
+
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
       this.router.navigate(['recipes/index']);
     }
   }
+
   // User profile
-  /* getUserProfile(id: any): Observable<any> {
-    let api = `${this.endpoint}/user-profile/${id}`;
+  getUserProfile(id: any): Observable<any> {
+    let api = `${this.endpoint}/recipes`;
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res) => {
         return res || {};
       }),
       catchError(this.handleError)
     );
-  } */
+  }
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';
