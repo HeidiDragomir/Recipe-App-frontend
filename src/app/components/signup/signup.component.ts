@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  
   signupForm: FormGroup;
-
+  alert: boolean = false;
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
@@ -21,15 +20,22 @@ export class SignupComponent implements OnInit {
       name: [''],
       email: [''],
       password: [''],
+      password_confirmation: [''], // trebuie implementat
     });
   }
   ngOnInit() {}
   registerUser() {
     this.authService.signUp(this.signupForm.value).subscribe((res) => {
       if (res) {
+        this.alert = true;
         this.signupForm.reset();
-        this.router.navigate(['recipes/index']);
+        setInterval(() => {
+          this.router.navigate(['recipes/index']);
+        }, 2000);
       }
     });
+  }
+  closeAlert() {
+    this.alert = false;
   }
 }
