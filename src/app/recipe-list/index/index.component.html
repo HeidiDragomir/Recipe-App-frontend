@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>My Lists</h1>
+  
+    <a href="#" routerLink="/recipelist/create/" class="btn btn-success"
+      >Create New List</a
+    >
+  
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let recipelist of recipelists">
+        <td>{{ recipelist.id }}</td>
+        <td>{{ recipelist.title }}</td>
+        
+        <td>
+          <a
+            href="#"
+            [routerLink]="['/recipelist', recipelist.id, 'view']"
+            class="btn btn-info"
+            >View</a
+          >
+          <a
+            href="#"
+            [routerLink]="['/recipelist', recipelist.id, 'edit']"
+            class="btn btn-info"
+            >Edit</a
+          >
+          <button
+            type="button"
+            (click)="deleterecipelist(recipelist.id)"
+            class="btn btn-info"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
