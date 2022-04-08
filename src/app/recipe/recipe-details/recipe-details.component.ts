@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/auth.service';
 import { Recipe, RecipeAPI } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
@@ -14,6 +15,7 @@ export class RecipeDetailsComponent implements OnInit {
   public package: any = {};
   constructor(
     public recipeService: RecipeService,
+    public authService: AuthService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -26,7 +28,7 @@ export class RecipeDetailsComponent implements OnInit {
     });
   }
 
- /*  saveRecipe(recipe: any) {
+/*  saveRecipe(recipe: any) {
     this.package = {
       title: recipe.title,
       img: recipe.image,
@@ -36,7 +38,7 @@ export class RecipeDetailsComponent implements OnInit {
     });
   } */
 
- saveRecipe(recipe: any) {
+ /* saveRecipe(recipe: any) {
     this.package = {
       title: recipe.title,
       image: recipe.image,
@@ -46,7 +48,7 @@ export class RecipeDetailsComponent implements OnInit {
         this.router.navigateByUrl('recipes/index');
       });
       
-  }
+  } */
   /*
   handleResponse(data: any) {
     console.log(data);

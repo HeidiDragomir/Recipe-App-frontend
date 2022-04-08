@@ -8,6 +8,7 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RecipeList } from '../recipe-list/recipe-list';
 
 @Injectable({
   providedIn: 'root',
@@ -34,11 +35,11 @@ export class AuthService {
       .post<any>(`${this.endpoint}/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.token);
-        // this.router.navigate(['recipes/index']);
-        this.getUserProfile(res.user.id).subscribe((res: any) => {
+        this.router.navigate(['recipes/index']);
+        /* this.getUserProfile(res.user.id).subscribe((res: any) => {
           this.currentUser = res;
           this.router.navigate(['user-profile/' + res.user.id]);
-        });
+        }); */
       });
   }
   getToken() {
@@ -67,6 +68,15 @@ export class AuthService {
       catchError(this.handleError)
     );
   }
+
+
+/*   getAll(): Observable<RecipeList[]> {
+    return this.http
+      .get<RecipeList[]>(`${this.endpoint}/recipelist`)
+      .pipe(catchError(this.handleError));
+  } */
+
+  
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';

@@ -50,15 +50,15 @@ export class RecipeService {
       .pipe(catchError(this.errorHandler));
   }
 
-  saveRecipe(id: number) {
+  /* saveRecipe() {
     return this.http
       .post(
-        this.localApi + '/recipes/' + id,
-        JSON.stringify(id),
+        this.localApi + '/recipes',
+        JSON.stringify(),
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));
-  }
+  } */
 
   /* saveRecipe(data: any) {
     return this.http.post(this.localApi + '/recipes/', data, this.httpOptions);

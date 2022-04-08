@@ -12,6 +12,8 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { RecipeListModule } from './recipe-list/recipe-list.module';
+
 
 @NgModule({
   declarations: [
@@ -19,15 +21,16 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     NavbarComponent,
     SigninComponent,
     SignupComponent,
-    UserProfileComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RecipeModule,
+    RecipeListModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     {

@@ -14,22 +14,21 @@
             <a href="{{ recipe.spoonacularSourceUrl }}">{{ recipe.title }}</a>
           </h5>
 
-          <p class="card-text">
-           Ready in {{ recipe.readyInMinutes }} minutes</p>
+          <p class="card-text">Ready in {{ recipe.readyInMinutes }} minutes</p>
           <p class="card-text">{{ recipe.servings }} servings</p>
           <p class="card-text">Health score: {{ recipe.healthScore }}</p>
           <p class="card-text">{{ recipe.dishTypes }}</p>
           <p class="card-text">
-            <a href="#" routerLink="/recipe/index" class="btn btn-primary"
+            <a href="#" routerLink="/recipes/index" class="btn btn-primary"
               >Back</a
             >
-            <button
-              
+            <!-- <button
+              *ngIf="this.authService.isLoggedIn"
               (click)="saveRecipe(id)"
               class="btn btn-success"
             >
-              Add to list
-            </button>
+              Save to list
+            </button> -->
           </p>
         </div>
       </div>
