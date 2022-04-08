@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Create New List</h1>
+
+  <a href="#" routerLink="/recipelist/index" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input
+        formControlName="title"
+        id="title"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['title'].touched && f['title'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['title'].errors && f['title'].errors['required']">
+          Title is required.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>
