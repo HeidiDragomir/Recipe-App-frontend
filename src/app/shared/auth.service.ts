@@ -14,19 +14,17 @@ import { RecipeList } from '../recipe-list/recipe-list';
   providedIn: 'root',
 })
 export class AuthService {
-  endpoint: string = 'http://localhost:8000/api';
+  endpoint: string = '//recipes-app-be.herokuapp.com/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   authService: any;
-  
-  
+
   constructor(private http: HttpClient, public router: Router) {}
 
   // Sign-up
   signUp(user: User): Observable<any> {
     let api = `${this.endpoint}/register`;
     return this.http.post(api, user).pipe(catchError(this.handleError));
-    
   }
 
   // Sign-in
@@ -69,14 +67,12 @@ export class AuthService {
     );
   }
 
-
-/*   getAll(): Observable<RecipeList[]> {
+  /*   getAll(): Observable<RecipeList[]> {
     return this.http
       .get<RecipeList[]>(`${this.endpoint}/recipelist`)
       .pipe(catchError(this.handleError));
   } */
 
-  
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';

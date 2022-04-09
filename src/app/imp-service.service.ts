@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ImpServiceService {
 
-  private localApi = 'http://localhost:8000/api';
+  private localApi = '//recipes-app-be.herokuapp.com/api';
 
   httpOptions = {
     headers: new HttpHeaders({
