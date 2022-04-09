@@ -31,7 +31,7 @@ const routes: Routes = [
     component: IndexComponent,
     canActivate: [AuthGuard],
   },
-  /*  { path: 'recipes/:recipeId/view', component: RecipeDetailsComponent }, */
+  /*  { path: 'recipes/:recipeId/view', component: RecipeComponent }, */
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
