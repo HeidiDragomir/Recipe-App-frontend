@@ -18,13 +18,27 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="this.authService.isLoggedIn" class="nav-link active" href="#">Recipe</a>
-        </li>
-        <li>
-          <a *ngIf="this.authService.isLoggedIn" class="nav-link active" routerLink="/recipelist"
-            >Recipe Lists</a
+          <a
+            *ngIf="this.authService.isLoggedIn"
+            class="nav-link active"
+            routerLink="/myrecipes"
+            
+            >My Recipes</a
           >
         </li>
+        <li>
+          <a
+            *ngIf="this.authService.isLoggedIn"
+            class="nav-link active"
+            routerLink="/recipelist"
+            >My Recipe Lists</a
+          >
+        </li>
+        <!-- <li>
+          <a *ngIf="this.authService.isLoggedIn" href=""
+            >Welcome, {{ currentUser.name }}</a
+          >
+        </li> -->
         <li>
           <a
             *ngIf="!this.authService.isLoggedIn"
