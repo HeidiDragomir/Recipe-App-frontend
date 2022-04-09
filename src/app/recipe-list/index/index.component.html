@@ -16,6 +16,13 @@
         <td>{{ recipelist.title }}</td>
         
         <td>
+          <!-- [routerLink]="['/recipelist', recipelist.id, 'view']" -->
+          <!-- <a
+            href="#"
+            (click)="savelist(recipelist.id)"
+            class="btn btn-info"
+            >Add</a
+          > -->
           <a
             href="#"
             [routerLink]="['/recipelist', recipelist.id, 'view']"
