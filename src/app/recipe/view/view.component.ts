@@ -12,20 +12,37 @@ import { RecipeService } from '../recipe.service';
 export class ViewComponent implements OnInit {
   id!: number;
   recipes: Recipe[] = [];
+  recipe: any;
   
 
   constructor(
     public recipeListService: RecipeListService,
+    private recipeService: RecipeService,
     private route: ActivatedRoute,
     public router: Router
   ) {}
 
+  //de lasat
   ngOnInit(): void {
     this.recipeListService.getAll().subscribe((data: Recipe[]) => {
       this.recipes = data;
       console.log(this.recipes);
     });
   }
+
+/*  ngOnInit() {
+    
+    this.recipeService
+      .getRecipe(this.route.snapshot.params["id"])
+      .subscribe((data) => {
+        this.recipe = data;
+        console.log(this.recipes);
+      });
+
+     this.recipeList.currentMessage.subscribe(
+      message => (this.message = message)
+    );
+  } */
 
   deleterecipe(id: number) {
     this.recipeListService.deleterecipe(id).subscribe((res) => {
