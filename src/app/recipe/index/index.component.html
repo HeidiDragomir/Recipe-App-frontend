@@ -1,6 +1,23 @@
 <div class="container">
 
-  
+  <p class="lead">
+    Find something that matches your appetite below
+  </p>
+  <p>
+    <input
+      type="text"
+      name="testing"
+      [(ngModel)]="searchinput"
+      placeholder="tex.: vegan, gluten free, salad, italian ..."
+    />
+    <button
+      class="btn btn-primary my-2"
+      routerLink="/recipes/index"
+      (click)="handleRecipeSearch()"
+    >
+      Get Recipes
+    </button>
+  </p>
 </div>
 
 <div class="container p-5" >
@@ -15,8 +32,10 @@
         <img class="card-img-top" src="{{ recipe.image }}" alt="Card image" />
         <div class="card-body">
           <h4 class="card-title">{{ recipe.title }}</h4>
+
+          // De corectat ca nu se vede nimic la calories//
           <p class="card-text">
-            {{ recipe.calories }} calories
+            {{ recipe.calories }} calories 
           </p>
           <a
             
