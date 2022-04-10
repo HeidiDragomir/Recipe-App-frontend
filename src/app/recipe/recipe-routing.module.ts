@@ -14,6 +14,8 @@ const routes: Routes = [
 
   { path: 'myrecipes', component: ViewComponent, canActivate: [AuthGuard] },
 
+ 
+
   //route for recipes that will be saved
 
   /* { path: 'recipes/:recipeId/add', component: RecipeComponent }, */
