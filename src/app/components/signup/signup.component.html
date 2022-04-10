@@ -1,6 +1,10 @@
 <div class="auth-wrapper">
+
+  <!-- de vazut ca ceva nu merge imdeiat dupa sign up si vrei sign in;
+  am observat ca trebuie prima data un refresh si apoi merge ok -->
+
 <div *ngIf="alert" class="alert alert-succes alert-dismissible fade show" role="alert">
-  <strong>Succes!</strong> You are now loged in!
+  <strong>Succes!</strong> You are now registred!
   <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>

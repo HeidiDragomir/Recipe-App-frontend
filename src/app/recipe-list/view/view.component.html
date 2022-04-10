@@ -1,17 +1,16 @@
 <div class="container">
-    <h1>View List</h1>
-  
-    <a href="#" routerLink="/recipelist/index" class="btn btn-primary">Back</a>
-  
-    <div>
-      <strong>ID:</strong>
-      <p>{{ recipelist.id }}</p>
-    </div>
-  
-    <div>
-      <strong>Title:</strong>
-      <p>{{ recipelist.title }}</p>
-    </div>
-  
-    
+  <h1>View List</h1>
+
+  <a href="#" routerLink="/recipelist/index" class="btn btn-primary">Back</a>
+
+  <div>
+    <strong>ID:</strong>
+    <!-- Ceva eroare in console: Cannot read properties of undefined (reading 'id') -->
+    <p>{{ recipelist.id }}</p>
   </div>
+
+  <div>
+    <strong>Title:</strong>
+    <p>{{ recipelist.title }}</p>
+  </div>
+</div>
