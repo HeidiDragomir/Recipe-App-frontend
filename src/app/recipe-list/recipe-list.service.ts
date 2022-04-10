@@ -10,17 +10,15 @@ import { RecipeService } from '../recipe/recipe.service';
   providedIn: 'root',
 })
 export class RecipeListService {
-
-  private localApi = 'http://localhost:8000/api';
+  private localApi = '//recipes-app-be.herokuapp.com/api';
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }),
   };
 
-  constructor(private http: HttpClient,
-    public recipeService: RecipeService) {}
+  constructor(private http: HttpClient, public recipeService: RecipeService) {}
 
   getAllList(): Observable<RecipeList[]> {
     return this.http
@@ -54,7 +52,7 @@ export class RecipeListService {
       .pipe(catchError(this.errorHandler));
   }
 
-   update(id: number | string, recipelist: any): Observable<RecipeList> {
+  update(id: number | string, recipelist: any): Observable<RecipeList> {
     return this.http
       .put<RecipeList>(
         this.localApi + '/recipelist/' + id,
@@ -63,7 +61,6 @@ export class RecipeListService {
       )
       .pipe(catchError(this.errorHandler));
   }
-
 
   delete(id: number | string) {
     return this.http
@@ -80,8 +77,10 @@ export class RecipeListService {
   }
 
   addRecipe(data: any) {
-    return this.http.post(this.localApi + '/recipe', data).pipe(catchError(this.errorHandler));
-    };
+    return this.http
+      .post(this.localApi + '/recipe', data)
+      .pipe(catchError(this.errorHandler));
+  }
 
   deleterecipe(id: number | string): Observable<Recipe> {
     return this.http
