@@ -5,15 +5,13 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Recipe, RecipeAPI } from './recipe';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
-
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     }),
   };
 
@@ -21,7 +19,14 @@ export class RecipeService {
 
   private apiKey = '7c0097059eea4b37ac2979292e6eeee3';
 
-    public number = '5';
+  public number = '5';
+
+  // Search
+  query!: string;
+  dietLabel!: string;
+  intoleranceLabel!: string;
+  mealTypeLabel!: string;
+  cuisineLabel!: string;
 
   constructor(private http: HttpClient) {}
 
@@ -44,6 +49,18 @@ export class RecipeService {
       .pipe(catchError(this.errorHandler));
   }
 
+
+  // Search //
+
+  getSearchRecipes(query: string, dietLabel: string, intoleranceLabel: string, mealTypeLabel: string, cuisineLabel: string): Observable<RecipeAPI> {
+    return this.http.get<RecipeAPI>(
+      this.apiUrl +
+        'complexSearch' +
+        '?apiKey=' +
+        this.apiKey + '&query=' + query + '&diet=' + dietLabel + '&intoleranceLabel=' + intoleranceLabel + '&type=' + mealTypeLabel + '&includeIngredients' + cuisineLabel
+    ).pipe(catchError(this.errorHandler));
+  }
+
   
   /* saveRecipe(data: any) {
     return this.http.post(this.localApi + '/recipe', data, this.httpOptions);
@@ -62,6 +79,8 @@ export class RecipeService {
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    return throwError(errorMessage);
+    return throwError(() => new Error('test'));
   }
+
+  
 }
