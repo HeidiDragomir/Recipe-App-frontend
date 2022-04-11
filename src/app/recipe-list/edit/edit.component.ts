@@ -14,7 +14,7 @@ export class EditComponent implements OnInit {
   id!: number;
   recipelist!: RecipeList;
   form!: FormGroup;
-  recipeTitle!: Recipe;
+  
 
   constructor(
     public recipeListService: RecipeListService,
@@ -40,7 +40,7 @@ export class EditComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     this.recipeListService
-      .addRecipeList(this.id, this.form.value, this.recipeTitle)
+      .updateList(this.id, this.form.value)
       .subscribe((res: any) => {
         console.log('List updated successfully!');
         this.router.navigateByUrl('recipelist/index');

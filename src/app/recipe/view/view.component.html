@@ -13,45 +13,7 @@
       <td>{{ recipe.id }}</td>
       <td>{{ recipe.title }}</td>
       <td>
-        <div class="dropdown">
-          <button onclick="addRecipeList()"
-            id="dLabel"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Add to List
-            <span class="caret"></span>
-          </button>
-          <ul *ngFor="let recipelist of recipelists" class="dropdown-menu" aria-labelledby="dLabel">
-            <li>
-              <p>{{ recipelist.title }}</p>
-            </li>
-          </ul>
-        </div>
-        <!-- <div class="dropdown">
-          <button onclick="myFunction()" class="dropbtn">Add to List</button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#home">{{ recipelist.title }}</a>
-          </div>
-        </div> -->
-        <!-- <a
-            href="myrecipes/{{recipe.id}}/add"
-            class="btn btn-info"
-            
-            >Add to List</a
-          > -->
-
-        <!-- <button
-        type="button"
-        (click)="addrecipelist(recipe.id)"
-        class="btn btn-info"
-      >
-        Add to List
-      </button> -->
-
-        <button
+       <button
           type="button"
           (click)="deleterecipe(recipe.id)"
           class="btn btn-info"

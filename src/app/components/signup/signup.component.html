@@ -3,18 +3,19 @@
   <!-- de vazut ca ceva nu merge imdeiat dupa sign up si vrei sign in;
   am observat ca trebuie prima data un refresh si apoi merge ok -->
 
-<div *ngIf="alert" class="alert alert-succes alert-dismissible fade show" role="alert">
+<!-- <div *ngIf="alert" class="alert alert-succes alert-dismissible fade show" role="alert">
   <strong>Succes!</strong> You are now registred!
   <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-</div>
+</div> -->
   <form
-    class="form-signin"
+    class="form-signup"
     [formGroup]="signupForm"
     (ngSubmit)="registerUser()"
   >
-    <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
+  
+    <h3 class="h3 mb-3 font-weight-normal text-center">Create account</h3>
     <div class="form-group">
       <label>Name</label>
       <input

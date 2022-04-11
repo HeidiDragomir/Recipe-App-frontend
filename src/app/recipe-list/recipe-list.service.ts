@@ -62,7 +62,7 @@ export class RecipeListService {
       .pipe(catchError(this.errorHandler));
   } */
 
-  addRecipeList(id: number | string, recipelist: any, recipeTitle: any): Observable<RecipeList> {
+  updateList(id: number | string, recipelist: any): Observable<RecipeList> {
     return this.http
       .put<RecipeList>(
         this.localApi + '/recipelist/' + id,

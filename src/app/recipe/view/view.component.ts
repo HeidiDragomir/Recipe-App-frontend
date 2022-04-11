@@ -14,7 +14,7 @@ export class ViewComponent implements OnInit {
   id!: number;
   recipes: Recipe[] = [];
   recipe: any;
-  recipelists: RecipeList[] = [];
+  // recipelists: RecipeList[] = [];
 
   constructor(
     public recipeListService: RecipeListService,
