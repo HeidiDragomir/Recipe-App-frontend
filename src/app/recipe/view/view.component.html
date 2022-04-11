@@ -3,8 +3,6 @@
 
   <a href="#" routerLink="/recipes/index" class="btn btn-primary">Back</a>
 
-  
-
   <table class="table table-bordered">
     <tr>
       <th>ID</th>
@@ -15,6 +13,21 @@
       <td>{{ recipe.id }}</td>
       <td>{{ recipe.title }}</td>
       <td>
+        <a
+            href="myrecipes/{{recipe.id}}/add"
+            class="btn btn-info"
+            
+            >Add to List</a
+          >
+
+        <!-- <button
+        type="button"
+        (click)="addrecipelist(recipe.id)"
+        class="btn btn-info"
+      >
+        Add to List
+      </button> -->
+
         <button
           type="button"
           (click)="deleterecipe(recipe.id)"
@@ -25,4 +38,8 @@
       </td>
     </tr>
   </table>
+
+  
+
+  <!-- (click)="addrecipe(recipe.id)" -->
 </div>

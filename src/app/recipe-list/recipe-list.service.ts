@@ -62,6 +62,16 @@ export class RecipeListService {
       .pipe(catchError(this.errorHandler));
   }
 
+  updateList(id: number | string, recipelist: any): Observable<RecipeList> {
+    return this.http
+      .put<RecipeList>(
+        this.localApi + '/recipelist/' + id,
+        JSON.stringify(recipelist),
+        this.httpOptions
+      )
+      .pipe(catchError(this.errorHandler));
+  }
+
   delete(id: number | string) {
     return this.http
       .delete<RecipeList>(this.localApi + '/recipelist/' + id, this.httpOptions)

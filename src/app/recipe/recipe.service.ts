@@ -30,7 +30,7 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-  getAllRecipes(): Observable<RecipeAPI> {
+   getAllRecipes(): Observable<RecipeAPI> {
     return this.http
       .get<RecipeAPI>(
         this.apiUrl +
@@ -49,7 +49,7 @@ export class RecipeService {
       .pipe(catchError(this.errorHandler));
   }
 
-
+ 
   // Search //
 
   getSearchRecipes(query: string, dietLabel: string, intoleranceLabel: string, mealTypeLabel: string, cuisineLabel: string): Observable<RecipeAPI> {

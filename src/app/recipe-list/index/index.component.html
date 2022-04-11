@@ -5,6 +5,10 @@
       >Create New List</a
     >
   
+    <ul *ngFor="let recipelist of recipelists">
+
+      <li><a href="recipelist/{{ recipelist.id }}/view">{{ recipelist.title }}</a></li>
+    </ul>
     <table class="table table-bordered">
       <tr>
         <th>ID</th>

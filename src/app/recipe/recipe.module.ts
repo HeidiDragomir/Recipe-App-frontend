@@ -9,6 +9,7 @@ import { RecipeComponent } from './recipe.component';
 import { ViewComponent } from './view/view.component';
 
 
+
 @NgModule({
   declarations: [IndexComponent, RecipeComponent, ViewComponent],
   imports: [
