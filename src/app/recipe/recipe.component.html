@@ -1,17 +1,17 @@
 <div class="container py-5">
   <div class="card mb-3">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-4 col-xxl-4">
         <img
           src="{{ recipe.image }}"
-          class="img-fluid rounded-start"
+          class="img-fluid"
           alt="Food"
         />
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">
-            <a href="{{ recipe.spoonacularSourceUrl }}">{{ recipe.title }}</a>
+            <a class="a-title" href="{{ recipe.spoonacularSourceUrl }}">{{ recipe.title }}</a>
           </h5>
 
           <p class="card-text">Ready in {{ recipe.readyInMinutes }} minutes</p>
@@ -19,35 +19,19 @@
           <p class="card-text">Health score: {{ recipe.healthScore }}</p>
           <p class="card-text">{{ recipe.dishTypes }}</p>
           <p class="card-text">
-            <a href="#" routerLink="/recipes/index" class="btn btn-primary"
+            <a href="#" routerLink="/recipes/index" class="btn btn-dark"
               >Back</a
-            ></p>
-            <button
-              *ngIf="this.authService.isLoggedIn"
+            >
+          </p>
+          <p *ngIf="this.authService.isLoggedIn" class="card-text">
+            <a
+              href="#"
               (click)="saveRecipe(id)"
               routerLink="/myrecipes"
-              class="btn btn-success dropdown-toggle"
-              role="button"
-              id="dropdownMenuLink"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+              class="btn btn-success"
+              >Add to My Recipes</a
             >
-              Add
-            </button>
-
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              
-              <!-- <form *ngFor="let i of recipe" [formGroup]="form" (ngSubmit)="submit()">
-                  
-              <input type="hidden" name="recipe_list_id" value="{{ i.id }}">
-                  <input type="hidden" name="recipe_id" value="{{ recipe.id }}">
-                  <li class="nav-item">
-                      <button class="dropdown-item" >{{ i.title }}</button>
-                  </li>
-              </form> -->
-             
-          </ul>
-          
+          </p>
         </div>
       </div>
     </div>

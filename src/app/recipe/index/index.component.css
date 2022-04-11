@@ -3,3 +3,13 @@
     
     object-fit: cover;
     }
+
+    .btn-info {
+        color: white;
+    }
+
+    .search-input {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+    

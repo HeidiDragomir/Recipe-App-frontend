@@ -1,44 +1,47 @@
-<div class="container">
-
-  <p class="lead">
-    Find something that matches your appetite below
-  </p>
-  <p>
-    <input
-      type="text"
-      name="testing"
-      [(ngModel)]="searchinput"
-      placeholder="tex.: vegan, gluten free, salad, italian ..."
-    />
-    <button
-      class="btn btn-primary my-2"
-      routerLink="/recipes/index"
-      (click)="handleRecipeSearch()"
-    >
-      Get Recipes
-    </button>
-  </p>
+<div class="container p-5">
+  <div class="row">
+    <div class="col">
+      <p class="lead">Find something that matches your appetite!</p>
+    </div>
+    <div class="row mt-4">
+      <div class="col mb-2 col-md-auto">
+        <input
+          class="search-input"
+          size="50"
+          type="text"
+          name="testing"
+          [(ngModel)]="searchinput"
+          placeholder="tex.: vegan, gluten free, salad, italian, dinner, lunch ..."
+        />
+      </div>
+      <div class="col col-md-auto">
+        <button
+          type="button"
+          class="btn btn-info search-button"
+          routerLink="/recipes/index"
+          (click)="handleRecipeSearch()"
+        >
+          Search Recipes
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container p-5" >
-  <div class="row gy-5" >
+<div class="container p-5">
+  <div class="row gy-5">
     <div
       class="col-lg-4 col-sm-6 d-flex align-items-stretch"
       *ngFor="let recipe of recipes"
     >
-    
-    
       <div class="card" style="width: 20rem">
         <img class="card-img-top" src="{{ recipe.image }}" alt="Card image" />
         <div class="card-body">
           <h4 class="card-title">{{ recipe.title }}</h4>
 
           <!-- De corectat ca nu se vede nimic la calories -->
-          <p class="card-text">
-            {{ recipe.calories }} calories 
-          </p>
+          <p class="card-text">Are You Hungry? Let's See Recipe!</p>
           <a
-            
             class="btn btn-primary"
             [routerLink]="['/recipes/', recipe.id, 'view']"
             >View</a
