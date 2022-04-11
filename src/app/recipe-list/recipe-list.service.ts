@@ -52,7 +52,7 @@ export class RecipeListService {
       .pipe(catchError(this.errorHandler));
   }
 
-  update(id: number | string, recipelist: any): Observable<RecipeList> {
+  /* update(id: number | string, recipelist: any): Observable<RecipeList> {
     return this.http
       .put<RecipeList>(
         this.localApi + '/recipelist/' + id,
@@ -60,9 +60,9 @@ export class RecipeListService {
         this.httpOptions
       )
       .pipe(catchError(this.errorHandler));
-  }
+  } */
 
-  updateList(id: number | string, recipelist: any): Observable<RecipeList> {
+  addRecipeList(id: number | string, recipelist: any, recipeTitle: any): Observable<RecipeList> {
     return this.http
       .put<RecipeList>(
         this.localApi + '/recipelist/' + id,

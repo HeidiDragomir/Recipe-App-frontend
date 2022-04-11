@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RecipeList } from 'src/app/recipe-list/recipe-list';
 import { RecipeListService } from 'src/app/recipe-list/recipe-list.service';
 import { Recipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
@@ -13,7 +14,7 @@ export class ViewComponent implements OnInit {
   id!: number;
   recipes: Recipe[] = [];
   recipe: any;
-  
+  recipelists: RecipeList[] = [];
 
   constructor(
     public recipeListService: RecipeListService,

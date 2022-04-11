@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Recipe } from 'src/app/recipe/recipe';
 import { RecipeList } from '../recipe-list';
 import { RecipeListService } from '../recipe-list.service';
 
@@ -13,6 +14,7 @@ export class EditComponent implements OnInit {
   id!: number;
   recipelist!: RecipeList;
   form!: FormGroup;
+  recipeTitle!: Recipe;
 
   constructor(
     public recipeListService: RecipeListService,
@@ -38,7 +40,7 @@ export class EditComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     this.recipeListService
-      .update(this.id, this.form.value)
+      .addRecipeList(this.id, this.form.value, this.recipeTitle)
       .subscribe((res: any) => {
         console.log('List updated successfully!');
         this.router.navigateByUrl('recipelist/index');
