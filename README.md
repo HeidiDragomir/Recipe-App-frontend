@@ -7,6 +7,6 @@
 Done in `Laravel`, deployed on [Heroku](https://recipes-app-be.herokuapp.com/), but only tested with `Insomnia` because that was requirement of this project.
 
 <br />
-![Desktop version](/src/assets/main-page.JPG)
+![Desktop version](../recipe-app-frontend/src/assets/main-page-app.jpg)
 <br /><br />
-![Mobile version](/src/assets/main-page-mobil.JPG)
+![Mobile version](../recipe-app-frontend/src/assets/main-page-mobilapp.jpg)
