@@ -1,15 +1,13 @@
 .card-img-top {
     width: 100%;
-    
     object-fit: cover;
-    }
+}
 
-    .btn-info {
-        color: white;
-    }
+.btn-info {
+    color: white;
+}
 
-    .search-input {
-        max-width: 100%;
-        border-radius: 5px;
-    }
-    
+.search-input {
+    max-width: 100%;
+    border-radius: 5px;
+}

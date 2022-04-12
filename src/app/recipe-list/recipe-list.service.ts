@@ -5,7 +5,6 @@ import { catchError } from 'rxjs/operators';
 import { RecipeList } from './recipe-list';
 import { Recipe } from '../recipe/recipe';
 import { RecipeService } from '../recipe/recipe.service';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -36,31 +35,11 @@ export class RecipeListService {
       .pipe(catchError(this.errorHandler));
   }
 
-  /* addlist(recipelist: any): Observable<RecipeList> {
-    return this.http
-      .post<RecipeList>(
-        this.localApi + '/lists',
-        JSON.stringify(recipelist),
-        this.httpOptions
-      )
-      .pipe(catchError(this.errorHandler));
-  } */
-
   find(id: number | string): Observable<RecipeList[]> {
     return this.http
       .get<RecipeList[]>(this.localApi + '/recipelist/' + id)
       .pipe(catchError(this.errorHandler));
   }
-
-  /* update(id: number | string, recipelist: any): Observable<RecipeList> {
-    return this.http
-      .put<RecipeList>(
-        this.localApi + '/recipelist/' + id,
-        JSON.stringify(recipelist),
-        this.httpOptions
-      )
-      .pipe(catchError(this.errorHandler));
-  } */
 
   updateList(id: number | string, recipelist: any): Observable<RecipeList> {
     return this.http

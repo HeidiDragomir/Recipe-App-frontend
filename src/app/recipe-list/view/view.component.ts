@@ -2,17 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeList } from '../recipe-list';
 import { RecipeListService } from '../recipe-list.service';
-
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
   styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
-
   id!: number;
   recipelist!: RecipeList;
- 
+
   constructor(
     public recipeListService: RecipeListService,
     private route: ActivatedRoute,

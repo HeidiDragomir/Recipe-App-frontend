@@ -8,12 +8,7 @@ export interface Recipe {
   spoonacularSourceUrl: string;
   healthScore: number;
   dishTypes: [];
-  
-  
 }
 export interface RecipeAPI {
-    results: Recipe[];
-  }
-
-  
-
+  results: Recipe[];
+}

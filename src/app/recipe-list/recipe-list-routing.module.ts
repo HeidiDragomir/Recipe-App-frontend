@@ -8,7 +8,7 @@ import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   { path: 'recipelist', redirectTo: 'recipelist/index', pathMatch: 'full' },
-  
+
   {
     path: 'recipelist/:recipelistId/view',
     component: ViewComponent,
@@ -31,7 +31,6 @@ const routes: Routes = [
     component: IndexComponent,
     canActivate: [AuthGuard],
   },
-  /*  { path: 'recipes/:recipeId/view', component: RecipeComponent }, */
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

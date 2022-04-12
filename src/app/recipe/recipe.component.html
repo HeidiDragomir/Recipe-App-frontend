@@ -1,29 +1,42 @@
 <div class="container py-5">
   <div class="card mb-3">
     <div class="row g-0">
-      <div class="col-md-4 col-xxl-4">
-        <img
-          src="{{ recipe.image }}"
-          class="img-fluid"
-          alt="Food"
-        />
+      <div class="col-md-3 col-xl-4">
+        <div class="card-body">
+          <img src="{{ recipe.image }}" class="img-fluid" alt="Food" />
+        </div>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">
-            <a class="a-title" href="{{ recipe.spoonacularSourceUrl }}">{{ recipe.title }}</a>
+            <a class="a-title" href="{{ recipe.spoonacularSourceUrl }}">{{
+              recipe.title
+            }}</a>
           </h5>
 
-          <p class="card-text">Ready in {{ recipe.readyInMinutes }} minutes</p>
-          <p class="card-text">{{ recipe.servings }} servings</p>
-          <p class="card-text">Health score: {{ recipe.healthScore }}</p>
-          <p class="card-text">{{ recipe.dishTypes }}</p>
-          <p class="card-text">
-            <a href="#" routerLink="/recipes/index" class="btn btn-dark"
+          <p class="card-text mt-4 mb-2">
+            Ready in <strong>{{ recipe.readyInMinutes }}</strong> minutes
+          </p>
+          <p class="card-text mb-2">
+            <strong>{{ recipe.servings }}</strong> servings
+          </p>
+          <p class="card-text mb-3">
+            Health score: <strong>{{ recipe.healthScore }}</strong>
+          </p>
+          <p *ngFor="let dishType of recipe.dishTypes" class="card-text mb-0">
+            <strong
+              ><i>{{ dishType | titlecase }}</i></strong
+            >
+          </p>
+          <p class="card-text mt-4">
+            <a href="#" routerLink="/recipes/index" class="btn btn-primary"
               >Back</a
             >
           </p>
-          <p *ngIf="this.authService.isLoggedIn" class="card-text">
+          <p
+            *ngIf="this.authService.isLoggedIn || recipe.recipeId == recipe.id"
+            class="card-text"
+          >
             <a
               href="#"
               (click)="saveRecipe(id)"

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/auth.service';
 import { RecipeList } from '../recipe-list';
 import { RecipeListService } from '../recipe-list.service';
 
@@ -13,8 +12,11 @@ export class IndexComponent implements OnInit {
   recipelists: RecipeList[] = [];
   id!: number;
 
-  constructor(public recipeListService: RecipeListService,
-     public router: Router, private route: ActivatedRoute) {}
+  constructor(
+    public recipeListService: RecipeListService,
+    public router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.recipeListService.getAllList().subscribe((data: RecipeList[]) => {
@@ -22,16 +24,6 @@ export class IndexComponent implements OnInit {
       console.log(this.recipelists);
     });
   }
-  
-  /* savelist(id: number) {
-    this.id = this.route.snapshot.params['recipeId'];
-    this.recipeListService
-      .addlist(id)
-      .subscribe(
-        data => this.handleResponse(data),
-        error => this.handleError(error)
-      );
-  } */
 
   deleterecipelist(id: number) {
     this.recipeListService.delete(id).subscribe((res) => {
@@ -42,7 +34,6 @@ export class IndexComponent implements OnInit {
 
   handleResponse(data: any) {
     console.log(data);
-    
   }
 
   handleError(error: any) {

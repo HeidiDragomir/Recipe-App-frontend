@@ -1,28 +1,34 @@
 <div class="container">
-  <h1>View My Recipes</h1>
+  <h1 class="text-center my-5">My Saved Recipes</h1>
 
-  <a href="#" routerLink="/recipes/index" class="btn btn-primary">Back</a>
+  <a href="#" routerLink="/recipes/index" class="btn btn-primary my-3">Back</a>
 
-  <table class="table table-bordered">
-    <tr>
-      <th>ID</th>
-      <th>Title</th>
-      <th width="220px">Action</th>
-    </tr>
-    <tr *ngFor="let recipe of recipes">
-      <td>{{ recipe.id }}</td>
-      <td>{{ recipe.title }}</td>
-      <td>
-       <button
-          type="button"
-          (click)="deleterecipe(recipe.id)"
-          class="btn btn-info"
-        >
-          Delete
-        </button>
-      </td>
-    </tr>
-  </table>
-
-  <!-- (click)="addrecipe(recipe.id)" -->
+  <div class="card w-60 bg-light mx-auto" style="border-radius: 15px">
+    <div class="card-body p-5">
+      <table class="table table-striped mb-0">
+        <tr>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let recipe of recipes">
+          <td>
+            <a
+              class="a-title"
+              [routerLink]="['/recipes/', recipe.recipeId, 'view']"
+              >{{ recipe.title }}</a
+            >
+          </td>
+          <td class="py-2">
+            <button
+              type="button"
+              (click)="deleterecipe(recipe.id)"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>

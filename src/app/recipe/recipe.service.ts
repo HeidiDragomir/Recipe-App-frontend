@@ -8,6 +8,7 @@ import { Recipe, RecipeAPI } from './recipe';
 @Injectable({
   providedIn: 'root',
 })
+
 export class RecipeService {
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,9 +20,10 @@ export class RecipeService {
 
   private apiKey = '7c0097059eea4b37ac2979292e6eeee3';
 
-  public number = '5';
+  public number = '10';
 
-  // Search
+
+  // Search //
   query!: string;
   dietLabel!: string;
   intoleranceLabel!: string;
@@ -30,7 +32,7 @@ export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-   getAllRecipes(): Observable<RecipeAPI> {
+  getAllRecipes(): Observable<RecipeAPI> {
     return this.http
       .get<RecipeAPI>(
         this.apiUrl +
@@ -49,24 +51,35 @@ export class RecipeService {
       .pipe(catchError(this.errorHandler));
   }
 
- 
+
   // Search //
 
-  getSearchRecipes(query: string, dietLabel: string, intoleranceLabel: string, mealTypeLabel: string, cuisineLabel: string): Observable<RecipeAPI> {
-    return this.http.get<RecipeAPI>(
-      this.apiUrl +
-        'complexSearch' +
-        '?apiKey=' +
-        this.apiKey + '&query=' + query + '&diet=' + dietLabel + '&intoleranceLabel=' + intoleranceLabel + '&type=' + mealTypeLabel + '&includeIngredients' + cuisineLabel
-    ).pipe(catchError(this.errorHandler));
+  getSearchRecipes(
+    query: string,
+    dietLabel: string,
+    intoleranceLabel: string,
+    mealTypeLabel: string,
+    cuisineLabel: string
+  ): Observable<RecipeAPI> {
+    return this.http
+      .get<RecipeAPI>(
+        this.apiUrl +
+          'complexSearch' +
+          '?apiKey=' +
+          this.apiKey +
+          '&query=' +
+          query +
+          '&diet=' +
+          dietLabel +
+          '&intoleranceLabel=' +
+          intoleranceLabel +
+          '&type=' +
+          mealTypeLabel +
+          '&includeIngredients' +
+          cuisineLabel
+      )
+      .pipe(catchError(this.errorHandler));
   }
-
-  
-  /* saveRecipe(data: any) {
-    return this.http.post(this.localApi + '/recipe', data, this.httpOptions);
-  } */
-
-  // store function to save to the laravel api
 
   errorHandler(error: {
     error: { message: string };
@@ -81,6 +94,4 @@ export class RecipeService {
     }
     return throwError(() => new Error('test'));
   }
-
-  
 }

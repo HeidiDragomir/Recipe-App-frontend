@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  alert: boolean = false;
+
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
@@ -20,22 +20,29 @@ export class SignupComponent implements OnInit {
       name: [''],
       email: [''],
       password: [''],
-      password_confirmation: [''], // trebuie implementat
     });
   }
+
   ngOnInit() {}
+
   registerUser() {
-    this.authService.signUp(this.signupForm.value).subscribe((res) => {
-      if (res) {
-        this.alert = true;
-        this.signupForm.reset();
-        setInterval(() => {
-          this.router.navigate(['recipes/index']);
-        }, 2000);
-      }
-    });
+    this.authService.signUp(this.signupForm.value).subscribe(
+      (data) => {
+        data = this.signupForm.reset();
+        this.router.navigate(['recipes/index']);
+        this.handleResponse(data);
+      },
+      (error) => this.handleError(error)
+    );
   }
-  closeAlert() {
-    this.alert = false;
+
+  handleResponse(data: any) {
+    data = 'User Added!';
+    alert(data);
+  }
+
+  handleError(error: any) {
+    error = 'User Already Exist';
+    alert(error);
   }
 }

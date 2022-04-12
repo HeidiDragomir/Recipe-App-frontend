@@ -37,26 +37,25 @@
           >My Recipe Lists</a
         >
       </li>
-      <!-- <li>
-          <a *ngIf="this.authService.isLoggedIn" href=""
-            >Welcome, {{ currentUser.name }}</a
-          >
-        </li> -->
     </ul>
     <ul class="navbar-nav my-2 my-lg-0">
       <li *ngIf="!this.authService.isLoggedIn" class="nav-item active mb-2">
-        <button class="btn btn-outline-success mx-3 text-white"
-        routerLinkActive="active"
-        routerLink="/log-in">
-        <i class="fa fa-fw fa-sign-out"></i>Sign in
+        <button
+          class="btn btn-outline-success mx-3 text-white"
+          routerLinkActive="active"
+          routerLink="/log-in"
+        >
+          <i class="fa fa-fw fa-sign-out"></i>Sign in
         </button>
       </li>
 
       <li *ngIf="!this.authService.isLoggedIn" class="nav-item active">
-        <button class="btn btn-outline-success mx-3 text-white"
-        routerLinkActive="active"
-        routerLink="/sign-up">
-        <i class="fa fa-fw fa-user"></i>Sign up
+        <button
+          class="btn btn-outline-success mx-3 text-white"
+          routerLinkActive="active"
+          routerLink="/sign-up"
+        >
+          <i class="fa fa-fw fa-user"></i>Sign up
         </button>
       </li>
 

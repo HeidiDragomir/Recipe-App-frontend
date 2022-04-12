@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  
   signinForm: FormGroup;
 
   constructor(
@@ -18,11 +17,11 @@ export class SigninComponent implements OnInit {
   ) {
     this.signinForm = this.fb.group({
       email: [''],
-      password: ['']
+      password: [''],
     });
   }
   ngOnInit() {}
-  
+
   loginUser() {
     this.authService.signIn(this.signinForm.value);
   }

@@ -1,0 +1,13 @@
+.btn-danger {
+    background-color: #d9534f;
+}
+
+.a-title {
+    color: #428BCA;
+    text-decoration: none;
+}
+
+.a-title:hover, .a-title:focus {
+    color: #2A6496;
+    text-decoration: underline;
+}
