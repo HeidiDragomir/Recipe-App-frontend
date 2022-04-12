@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Recipe, RecipeAPI } from './recipe';
+import { environment } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class RecipeService {
 
   private apiUrl = 'https://api.spoonacular.com/recipes/';
 
-  private apiKey = '7c0097059eea4b37ac2979292e6eeee3';
+  private apiKey!: string;
 
   public number = '10';
 
@@ -30,7 +31,9 @@ export class RecipeService {
   mealTypeLabel!: string;
   cuisineLabel!: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.apiKey = environment.API_KEY;
+  }
 
   getAllRecipes(): Observable<RecipeAPI> {
     return this.http
