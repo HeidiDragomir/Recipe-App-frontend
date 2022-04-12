@@ -1,12 +1,17 @@
-# RecipeAppFrontend
+## RecipeAppFrontend
 
 [Live, deployed application can be found here!](https://recipe-app-fe13.netlify.app)
 
-# RecipeAppBackend
+## RecipeAppBackend
 
-Done in `Laravel`, deployed on [Heroku](https://recipes-app-be.herokuapp.com/), but only tested with `Insomnia` because that was requirement of this project.
+Done in `Laravel`, deployed on [Heroku](https://recipes-app-be.herokuapp.com/), but only tested with `Insomnia` because that was required for this project.
 
 <br />
-![Desktop version](../recipe-app-frontend/src/assets/main-page-app.jpg)
+
+<img src="../recipe-app-frontend/src/assets/main-page-app.jpg" width="800">
+
 <br /><br />
-![Mobile version](../recipe-app-frontend/src/assets/main-page-mobilapp.jpg)
+
+<img src="../recipe-app-frontend/src/assets/main-page-mobilapp.jpg" width="250">
+
+ 
