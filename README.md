@@ -8,10 +8,9 @@ Done in `Laravel`, deployed on [Heroku](https://recipes-app-be.herokuapp.com/), 
 
 <br />
 
-<img src="../recipe-app-frontend/src/assets/main-page-app.jpg" width="800">
+![Desktop version](../recipe-app-frontend/src/assets/main-page-app.jpg)
 
 <br /><br />
 
-<img src="../recipe-app-frontend/src/assets/main-page-mobilapp.jpg" width="250">
+![Mobile version](../recipe-app-frontend/src/assets/main-page-mobilapp.jpg)
 
- 
