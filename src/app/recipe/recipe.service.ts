@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root',
 })
-
 export class RecipeService {
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,14 +21,6 @@ export class RecipeService {
   private apiKey!: string;
 
   public number = '10';
-
-
-  // Search //
-  query!: string;
-  dietLabel!: string;
-  intoleranceLabel!: string;
-  mealTypeLabel!: string;
-  cuisineLabel!: string;
 
   constructor(private http: HttpClient) {
     this.apiKey = environment.API_KEY;
@@ -54,32 +45,11 @@ export class RecipeService {
       .pipe(catchError(this.errorHandler));
   }
 
-
   // Search //
-
-  getSearchRecipes(
-    query: string,
-    dietLabel: string,
-    intoleranceLabel: string,
-    mealTypeLabel: string,
-    cuisineLabel: string
-  ): Observable<RecipeAPI> {
+  searchRecipe(data: any): Observable<Recipe[]> {
     return this.http
-      .get<RecipeAPI>(
-        this.apiUrl +
-          'complexSearch' +
-          '?apiKey=' +
-          this.apiKey +
-          '&query=' +
-          query +
-          '&diet=' +
-          dietLabel +
-          '&intoleranceLabel=' +
-          intoleranceLabel +
-          '&type=' +
-          mealTypeLabel +
-          '&includeIngredients' +
-          cuisineLabel
+      .get<any>(
+        `${this.apiUrl}complexSearch?apiKey=${this.apiKey}&query=${data.query}&type=${data.type}&diet=${data.diet}`
       )
       .pipe(catchError(this.errorHandler));
   }

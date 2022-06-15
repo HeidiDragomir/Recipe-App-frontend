@@ -1,29 +1,42 @@
 <div class="container p-5">
   <div class="row">
-    <div class="col">
+    <div class="container-sm">
       <p class="lead">Find something that matches your appetite!</p>
     </div>
-    <div class="row mt-4">
-      <div class="col mb-2 col-md-auto">
-        <input
-          class="search-input"
-          size="50"
-          type="text"
-          name="testing"
-          [(ngModel)]="searchinput"
-          placeholder="tex.: vegan, gluten free, salad, italian, dinner, lunch ..."
-        />
-      </div>
-      <div class="col col-md-auto">
-        <button
-          type="button"
-          class="btn btn-info search-button"
-          routerLink="/recipes/index"
-          (click)="handleRecipeSearch()"
-        >
-          Search Recipes
-        </button>
-      </div>
+    <div class="container-sm">
+      <form
+        class="row row-cols-lg-auto g-3 align-items-center"
+        [formGroup]="searchRecipe"
+        (submit)="handleRecipeSearch()"
+      >
+        <div class="form-group col-12">
+          <select formControlName="diet" class="mt-1 form-select">
+            <option value="" selected>Diet</option>
+            <option value="gluten+free">Gluten Free</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+          </select>
+        </div>
+        <div class="form-group col-12">
+          <select formControlName="type" class="mt-1 form-select">
+            <option value="" selected>Mealtype</option>
+            <option value="main+course">Main course</option>
+            <option value="breakfast">Breakfast</option>
+            <option value="dessert">Dessert</option>
+          </select>
+        </div>
+        <div class="form-group col-12">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search recipes"
+            formControlName="query"
+          />
+        </div>
+        <div class="form-group col-12">
+        <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
