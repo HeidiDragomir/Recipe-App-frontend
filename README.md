@@ -14,5 +14,5 @@ Done in `Laravel`, deployed on [Heroku](https://recipes-app-be.herokuapp.com/), 
 
 <img src="https://raw.githubusercontent.com/HeidiDragomir/Recipe-App-frontend/main/src/assets/main-page.jpg" style="width: auto; height: auto">
 
-<img src="https://raw.githubusercontent.com/HeidiDragomir/Recipe-App-frontend/main/src/assets/main-page-mobilversion.jpg" style="width: auto; height: 70">
+<img src="https://raw.githubusercontent.com/HeidiDragomir/Recipe-App-frontend/main/src/assets/main-page-mobilversion.jpg" style="width: auto; height: 70%">
 
